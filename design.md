@@ -72,6 +72,7 @@ JSON + POST
 ### 1.4.1 验证服务端Sign合法性
 
 **Sign = HMAC-SHA256(X25519-SharedKey(Kcspri, Ksspub), Krvpub || AccessID)**
+
 验证通过后执行 1.4.2
 
 ### 1.4.2 向接收端发送访问请求(Access Request)
@@ -89,13 +90,14 @@ JSON + POST
 发送请求(RPC)：
 
 需要发送如下结构体
-`
+
 struct Auth {
+
 	string AccessID;
 
 	string Token;
 };
-`
+
 
 其他遵守RPC调用方式，RPC标准不在这里叙述
 
