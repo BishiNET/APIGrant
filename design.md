@@ -92,9 +92,7 @@ JSON + POST
 需要发送如下结构体
 
 	struct Auth {
-
 		string AccessID;
-
 		string Token;
 	};
 
@@ -151,14 +149,13 @@ API URL: request_verify/{AccessID}/{Sign}
 **Sign = HMAC-SHA256(X25519-SharedKey(Kspri, Krvpub), AccessID)**
 
 返回值:
+|参数名|接受|类型|
+|-|-|-|
 
-**Ks - String(即2.1.2中的Ks)**
-
-**Sign - Hex String**
-
-**Krpub = RequestPublicKey - Hex String**
-
-**Kcspub - Hex String(即1.2.1中的Kcspub)**
+|Ks|即2.1.2中的Ks|String|
+|Sign| |Hex String|
+|Krpub = RequestPublicKey| |Hex String|
+|Kcspub|即1.2.1中的Kcspub|Hex String|
 
 其中
 
