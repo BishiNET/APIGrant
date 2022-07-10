@@ -151,7 +151,6 @@ API URL: request_verify/{AccessID}/{Sign}
 返回值:
 |参数名|接受|类型|
 |-|-|-|
-
 |Ks|即2.1.2中的Ks|String|
 |Sign| |Hex String|
 |Krpub = RequestPublicKey| |Hex String|
