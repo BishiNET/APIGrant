@@ -51,7 +51,8 @@ PARAMS_ERROR = 2
 |Source|UUID(请求端UUID)|String|
 |Sign|签名|Hex String|
 |Kcspub = CSPUB| |String|
-1.2.2 请求格式：
+
+### 1.2.2 请求格式：
 JSON + POST
 
 ## 1.3 接受返回值：
@@ -59,9 +60,9 @@ JSON + POST
 服务端返回参数：
 |参数名|接受|类型|
 |-|-|-|
-|ErrCode|错误返回码|int
-AccessID| |String|
-RemoteAddr|接收端IPv4地址|String|
+|ErrCode|错误返回码|int|
+|AccessID| |String|
+|RemoteAddr|接收端IPv4地址|String|
 |Krvpub = ReceiverPublicKey| |Hex String|
 |Ksspub = ServerSymmetricPublicKey| |Hex String|
 |Sign|签名|Hex String|
@@ -75,26 +76,27 @@ RemoteAddr|接收端IPv4地址|String|
 
 ### 1.4.2 向接收端发送访问请求(Access Request)
 设以下变量
-`
-Ks1 = X25519-SharedKey(Kcspri, Ksspub)
 
-Ks2 = X25519-SharedKey(Krpri, Krvpub)
+**Ks1 = X25519-SharedKey(Kcspri, Ksspub)**
 
-Ks3 = X25519-SharedKey(Kcspri, Krvpub)
+**Ks2 = X25519-SharedKey(Krpri, Krvpub)**
 
-Token = HMAC-SHA256(Ks1 || Ks2 || Ks3, AccessID)
-`
+**Ks3 = X25519-SharedKey(Kcspri, Krvpub)**
+
+**Token = HMAC-SHA256(Ks1 || Ks2 || Ks3, AccessID)**
+
+
 发送请求(RPC)：
+
 需要发送如下结构体
-`
-struct Auth {
+`struct Auth {
 
 	string AccessID;
 
 	string Token;
 
-};
-`
+};`
+
 其他遵守RPC调用方式，RPC标准不在这里叙述
 
 
