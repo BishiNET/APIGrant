@@ -91,12 +91,12 @@ JSON + POST
 
 需要发送如下结构体
 
-struct Auth {
+	struct Auth {
 
-	string AccessID;
+		string AccessID;
 
-	string Token;
-};
+		string Token;
+	};
 
 
 其他遵守RPC调用方式，RPC标准不在这里叙述
