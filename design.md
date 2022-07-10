@@ -89,13 +89,13 @@ JSON + POST
 发送请求(RPC)：
 
 需要发送如下结构体
-`struct Auth {
-
+`
+struct Auth {
 	string AccessID;
 
 	string Token;
-
-};`
+};
+`
 
 其他遵守RPC调用方式，RPC标准不在这里叙述
 
@@ -120,9 +120,9 @@ JSON + POST
 
 设以下变量
 
-**Ksspub = 服务端临时密钥对公钥(Server Symmetric PublicKey) **
+**Ksspub = 服务端临时密钥对公钥(Server Symmetric PublicKey)**
 
-**Ksspri = 服务端临时密钥对私钥(Server Symmetric PrivateKey) **
+**Ksspri = 服务端临时密钥对私钥(Server Symmetric PrivateKey)**
 
 并返还给请求端Ksspub, Krvpub, Sign
 其中
@@ -149,15 +149,15 @@ API URL: request_verify/{AccessID}/{Sign}
 **Sign = HMAC-SHA256(X25519-SharedKey(Kspri, Krvpub), AccessID)**
 
 返回值:
-`
-Ks - String(即2.1.2中的Ks)
 
-Sign - Hex String
+**Ks - String(即2.1.2中的Ks)**
 
-Krpub = RequestPublicKey - Hex String
+**Sign - Hex String**
 
-Kcspub - Hex String(即1.2.1中的Kcspub)
-`
+**Krpub = RequestPublicKey - Hex String**
+
+**Kcspub - Hex String(即1.2.1中的Kcspub)**
+
 其中
 
 **Sign = HMAC-SHA256(X25519-SharedKey(Kspri, Krvpub), Kcspub || Ks || RequestPublicKey)**
